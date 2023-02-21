@@ -61,7 +61,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/c899a0e7-b734-4119-b30e-4f839c178b8a",
+					"raw": "https://localhost:7164/api/movies/93c9ad07-5d24-4d81-8e75-1f2f5759f8fe",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -70,7 +70,58 @@
 					"path": [
 						"api",
 						"movies",
-						"c899a0e7-b734-4119-b30e-4f839c178b8a"
+						"93c9ad07-5d24-4d81-8e75-1f2f5759f8fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update movie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2022,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7164/api/movies/93c9ad07-5d24-4d81-8e75-1f2f5759f8fe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"93c9ad07-5d24-4d81-8e75-1f2f5759f8fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/api/movies/f47c1b71-4e85-4559-811e-624c4831beb0",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"f47c1b71-4e85-4559-811e-624c4831beb0"
 					]
 				}
 			},
