@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "7078e554-4c8c-4333-a165-77a745461a68",
+		"name": "Movies REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24102054"
+	},
+	"item": [
+		{
+			"name": "Create movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2023,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7164/api/movies",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/api/movies",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/api/movies/c899a0e7-b734-4119-b30e-4f839c178b8a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"c899a0e7-b734-4119-b30e-4f839c178b8a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

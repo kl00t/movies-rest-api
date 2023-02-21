@@ -14,6 +14,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{781816
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Contracts", "Movies.Contracts\Movies.Contracts.csproj", "{E234E20D-4B48-49CD-AE73-60F3B2650446}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman", "Postman", "{D3B9F2B6-3741-4273-914B-573A9C8CA1F1}"
+	ProjectSection(SolutionItems) = preProject
+		Movies.postman_collection = Movies.postman_collection
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{6C277771-0573-4631-BE29-3F37B1AFD303}"
+	ProjectSection(SolutionItems) = preProject
+		movies.json = movies.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
