@@ -24,6 +24,11 @@ public class InMemoryMovieRepository : IMovieRepository
         return Task.FromResult(movieRemoved);
     }
 
+    public Task<bool> ExistsByIdAsync(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<IEnumerable<Movie>> GetAllAsync()
     {
         var movies = _movies.AsEnumerable();

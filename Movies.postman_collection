@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2023,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2022,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,7 +61,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/93c9ad07-5d24-4d81-8e75-1f2f5759f8fe",
+					"raw": "https://localhost:7164/api/movies/6971f605-940a-40b4-82b5-f813b6701b48",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -70,7 +70,28 @@
 					"path": [
 						"api",
 						"movies",
-						"93c9ad07-5d24-4d81-8e75-1f2f5759f8fe"
+						"6971f605-940a-40b4-82b5-f813b6701b48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie by slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/api/movies/nick-the-greek-2023",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"nick-the-greek-2023"
 					]
 				}
 			},
@@ -83,7 +104,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2022,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2023,\r\n  \"genres\": [\r\n    \"Action\",\r\n    \"Adventure\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +112,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7164/api/movies/93c9ad07-5d24-4d81-8e75-1f2f5759f8fe",
+					"raw": "https://localhost:7164/api/movies/6971f605-940a-40b4-82b5-f813b6701b48",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -100,7 +121,7 @@
 					"path": [
 						"api",
 						"movies",
-						"93c9ad07-5d24-4d81-8e75-1f2f5759f8fe"
+						"6971f605-940a-40b4-82b5-f813b6701b48"
 					]
 				}
 			},
@@ -112,7 +133,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/f47c1b71-4e85-4559-811e-624c4831beb0",
+					"raw": "https://localhost:7164/api/movies/46897c4d-aed9-4d83-815b-967fc30e5b29",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -121,7 +142,7 @@
 					"path": [
 						"api",
 						"movies",
-						"f47c1b71-4e85-4559-811e-624c4831beb0"
+						"46897c4d-aed9-4d83-815b-967fc30e5b29"
 					]
 				}
 			},
