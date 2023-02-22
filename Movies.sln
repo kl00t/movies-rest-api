@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{781816
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Contracts", "Movies.Contracts\Movies.Contracts.csproj", "{E234E20D-4B48-49CD-AE73-60F3B2650446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Contracts", "Movies.Contracts\Movies.Contracts.csproj", "{E234E20D-4B48-49CD-AE73-60F3B2650446}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman", "Postman", "{D3B9F2B6-3741-4273-914B-573A9C8CA1F1}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{8EC1BE
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{CAF934FD-79D3-49FA-8D9F-3847A9469916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{E234E20D-4B48-49CD-AE73-60F3B2650446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E234E20D-4B48-49CD-AE73-60F3B2650446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E234E20D-4B48-49CD-AE73-60F3B2650446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF934FD-79D3-49FA-8D9F-3847A9469916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF934FD-79D3-49FA-8D9F-3847A9469916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF934FD-79D3-49FA-8D9F-3847A9469916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF934FD-79D3-49FA-8D9F-3847A9469916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

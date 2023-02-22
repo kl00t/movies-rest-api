@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2022,\r\n  \"genres\": [\r\n    \"Action\"\r\n  ]\r\n}",
+					"raw": "  {\r\n    \"Id\": \"ad379b9b-257e-445c-a9ea-10da301f2386\",\r\n    \"Slug\": \"toy-story-1995\",\r\n    \"Title\": \"Toy Story\",\r\n    \"YearOfRelease\": 1995,\r\n    \"Genres\": [\r\n      \"Adventure\",\r\n      \"Animation\",\r\n      \"Children\",\r\n      \"Comedy\",\r\n      \"Fantasy\"\r\n    ],\r\n    \"Links\": [\r\n      \"https://www.imdb.com/title/tt114709\",\r\n      \"https://www.themoviedb.org/movie/862\"\r\n    ]\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,9 +37,24 @@
 		},
 		{
 			"name": "Get all movies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://localhost:7164/api/movies",
 					"protocol": "https",
@@ -58,10 +73,13 @@
 		{
 			"name": "Get movie by id",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/6971f605-940a-40b4-82b5-f813b6701b48",
+					"raw": "https://localhost:7164/api/movies/3fc85df4-93da-459f-a565-a4e894c97033",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -70,7 +88,7 @@
 					"path": [
 						"api",
 						"movies",
-						"6971f605-940a-40b4-82b5-f813b6701b48"
+						"3fc85df4-93da-459f-a565-a4e894c97033"
 					]
 				}
 			},
@@ -147,6 +165,64 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userid\": \"147C3308-AFE8-44CD-8CB4-501D4CD22B1B\",\r\n    \"email\": \"scott_vaughan@hotmail.com\",\r\n    \"customClaims\": {\r\n        \"admin\": false,\r\n        \"trusted_member\": true\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5003/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5Yzk0NzVmNC03ZmI5LTQzM2YtOWQ4OC1lYTU5NTExMGJjY2EiLCJzdWIiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwiZW1haWwiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwidXNlcmlkIjoiMTQ3YzMzMDgtYWZlOC00NGNkLThjYjQtNTAxZDRjZDIyYjFiIiwiYWRtaW4iOmZhbHNlLCJ0cnVzdGVkX21lbWJlciI6dHJ1ZSwibmJmIjoxNjc3MDYyMjkyLCJleHAiOjE2NzcwOTEwOTIsImlhdCI6MTY3NzA2MjI5MiwiaXNzIjoiaHR0cHM6Ly9pZC5uaWNrY2hhcHNhcy5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5uaWNrY2hhcHNhcy5jb20ifQ.Ss5sGmFpfZvTSS4crE4rdbRpuD0AceKtr6mrg9Y-0pg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
