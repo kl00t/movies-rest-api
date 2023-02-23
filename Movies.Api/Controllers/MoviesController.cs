@@ -30,7 +30,6 @@ public class MoviesController : ControllerBase
 	public async Task<IActionResult> Get([FromRoute] string idOrSlug, CancellationToken token)
 	{
 		var userId = HttpContext.GetUserId();
-
 		var movie = Guid.TryParse(idOrSlug, out var id) ?
             await _movieService.GetByIdAsync(id, userId, token)
 			: await _movieService.GetBySlugAsync(slug: idOrSlug, userId, token);
