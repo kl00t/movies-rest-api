@@ -41,9 +41,6 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -73,9 +70,6 @@
 		{
 			"name": "Get movie by id",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -100,7 +94,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/nick-the-greek-2023",
+					"raw": "https://localhost:7164/api/movies/avatar-2021",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -109,7 +103,7 @@
 					"path": [
 						"api",
 						"movies",
-						"nick-the-greek-2023"
+						"avatar-2021"
 					]
 				}
 			},
@@ -122,7 +116,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2023,\r\n  \"genres\": [\r\n    \"Action\",\r\n    \"Adventure\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"title\": \"Avatar\",\r\n  \"yearOfRelease\": 2021,\r\n  \"genres\": [\r\n    \"Action\",\r\n    \"Adventure\",\r\n    \"Fantasy\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +124,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7164/api/movies/6971f605-940a-40b4-82b5-f813b6701b48",
+					"raw": "https://localhost:7164/api/movies/3fc85df4-93da-459f-a565-a4e894c97033",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -139,7 +133,7 @@
 					"path": [
 						"api",
 						"movies",
-						"6971f605-940a-40b4-82b5-f813b6701b48"
+						"3fc85df4-93da-459f-a565-a4e894c97033"
 					]
 				}
 			},
@@ -173,7 +167,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userid\": \"147C3308-AFE8-44CD-8CB4-501D4CD22B1B\",\r\n    \"email\": \"scott_vaughan@hotmail.com\",\r\n    \"customClaims\": {\r\n        \"admin\": false,\r\n        \"trusted_member\": true\r\n    }\r\n}",
+					"raw": "{\r\n    \"userid\": \"147C3308-AFE8-44CD-8CB4-501D4CD22B1C\",\r\n    \"email\": \"scott_vaughan@hotmail.com\",\r\n    \"customClaims\": {\r\n        \"admin\": true,\r\n        \"trusted_member\": true\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -193,6 +187,59 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Rate movie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7164/api/movies/3fc85df4-93da-459f-a565-a4e894c97033/ratings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"3fc85df4-93da-459f-a565-a4e894c97033",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete rating",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/api/movies/3fc85df4-93da-459f-a565-a4e894c97033/ratings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"api",
+						"movies",
+						"3fc85df4-93da-459f-a565-a4e894c97033",
+						"ratings"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -200,7 +247,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5Yzk0NzVmNC03ZmI5LTQzM2YtOWQ4OC1lYTU5NTExMGJjY2EiLCJzdWIiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwiZW1haWwiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwidXNlcmlkIjoiMTQ3YzMzMDgtYWZlOC00NGNkLThjYjQtNTAxZDRjZDIyYjFiIiwiYWRtaW4iOmZhbHNlLCJ0cnVzdGVkX21lbWJlciI6dHJ1ZSwibmJmIjoxNjc3MDYyMjkyLCJleHAiOjE2NzcwOTEwOTIsImlhdCI6MTY3NzA2MjI5MiwiaXNzIjoiaHR0cHM6Ly9pZC5uaWNrY2hhcHNhcy5jb20iLCJhdWQiOiJodHRwczovL21vdmllcy5uaWNrY2hhcHNhcy5jb20ifQ.Ss5sGmFpfZvTSS4crE4rdbRpuD0AceKtr6mrg9Y-0pg",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5OTdkZjljOS0xMGUwLTQwZTUtOWM4Ni05ZTBhOGE5ODJjZTYiLCJzdWIiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwiZW1haWwiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwidXNlcmlkIjoiMTQ3YzMzMDgtYWZlOC00NGNkLThjYjQtNTAxZDRjZDIyYjFjIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE2NzcxNTAyMjMsImV4cCI6MTY3NzE3OTAyMywiaWF0IjoxNjc3MTUwMjIzLCJpc3MiOiJodHRwczovL2lkLm5pY2tjaGFwc2FzLmNvbSIsImF1ZCI6Imh0dHBzOi8vbW92aWVzLm5pY2tjaGFwc2FzLmNvbSJ9.Uh33U6NzNncrC6RssPDnZdDNpdeUM1bW8ihrVIHf25o",
 				"type": "string"
 			}
 		]
