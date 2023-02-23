@@ -29,7 +29,7 @@ public class InMemoryMovieRepository : IMovieRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Movie>> GetAllAsync(Guid? userId, CancellationToken token)
+    public Task<IEnumerable<Movie>> GetAllAsync(GetAllMoviesOptions options, CancellationToken token)
     {
         var movies = _movies.AsEnumerable();
         return Task.FromResult(movies);
