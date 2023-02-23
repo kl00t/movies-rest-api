@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Movies.Api.Auth;
 using Movies.Api.Mapping;
+using Movies.Application.Models;
 using Movies.Application.Services;
 using Movies.Contracts.Requests;
 
@@ -15,6 +16,15 @@ public class MoviesController : ControllerBase
 	public MoviesController(IMovieService movieService)
 	{
 		_movieService = movieService;
+	}
+
+    [Authorize(AuthConstants.AdminUserPolicyName)]
+    [HttpPost(ApiEndpoints.Movies.CreateBulk)]
+	public async Task<IActionResult> CreateBulk([FromBody] CreateBulkMoviesRequest[] request, CancellationToken token)
+	{
+		var movies = request.MapToMovies();
+        await _movieService.CreateBulkAsync(movies, token);
+		return Ok();
 	}
 
     [Authorize(AuthConstants.TrustedMemberPolicyName)]

@@ -10,6 +10,8 @@ public static class ApiEndpoints
 
         public const string Create = Base;
 
+        public const string CreateBulk = $"{Base}/bulk";
+
         public const string Get = $"{Base}/{{idOrSlug}}";
 
         public const string GetAll = Base;

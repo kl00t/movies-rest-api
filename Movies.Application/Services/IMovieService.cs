@@ -17,4 +17,6 @@ public interface IMovieService
     Task<bool> DeleteByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
     Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken = default);
+
+    Task CreateBulkAsync(IEnumerable<Movie> movies, CancellationToken cancellationToken = default);
 }
