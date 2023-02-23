@@ -19,4 +19,6 @@ public interface IMovieService
     Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
     Task CreateBulkAsync(IEnumerable<Movie> movies, CancellationToken cancellationToken = default);
+
+    Task<int> GetCountAsync(string? title, int? yearOfRelease, CancellationToken cancellationToken = default);
 }

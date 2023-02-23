@@ -47,6 +47,11 @@ public class InMemoryMovieRepository : IMovieRepository
         return Task.FromResult(movie);
     }
 
+    public Task<int> GetCountAsync(string? title, int? yearOfRelease, CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<bool> UpdateAsync(Movie movie, CancellationToken token)
     {
         var movieIndex = _movies.FindIndex(x => x.Id == movie.Id);
