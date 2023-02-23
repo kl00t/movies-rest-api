@@ -18,7 +18,8 @@ public static class ApplicationServiceCollectionExtensions
 
     public static IServiceCollection AddDatabase(this IServiceCollection services, string connectionString)
     {
-        services.AddSingleton<IMovieRepository, NpgSqlMovieRepository>();
+        services.AddSingleton<IRatingRepository, RatingRepository>();
+        services.AddSingleton<IMovieRepository, MovieRepository>();
         services.AddSingleton<IDbConnectionFactory>(_ => new NpgSqlConnectionFactory(connectionString));
         services.AddSingleton<DbInitializer>();
         return services;
