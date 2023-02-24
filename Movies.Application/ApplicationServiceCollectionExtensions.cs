@@ -10,7 +10,7 @@ public static class ApplicationServiceCollectionExtensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        //services.AddSingleton<IMovieRepository, InMemoryMovieRepository>();
+        services.AddSingleton<IRatingService, RatingService>();
         services.AddSingleton<IMovieService, MovieService>();
         services.AddValidatorsFromAssemblyContaining<IApplicationMarker>(ServiceLifetime.Singleton);
         return services;
@@ -18,9 +18,16 @@ public static class ApplicationServiceCollectionExtensions
 
     public static IServiceCollection AddDatabase(this IServiceCollection services, string connectionString)
     {
-        services.AddSingleton<IMovieRepository, NpgSqlMovieRepository>();
+        services.AddSingleton<IRatingRepository, RatingRepository>();
+        services.AddSingleton<IMovieRepository, MovieRepository>();
         services.AddSingleton<IDbConnectionFactory>(_ => new NpgSqlConnectionFactory(connectionString));
         services.AddSingleton<DbInitializer>();
+        return services;
+    }
+
+    public static IServiceCollection AddInMemoryDatabase(this IServiceCollection services)
+    {
+        services.AddSingleton<IMovieRepository, InMemoryMovieRepository>();
         return services;
     }
 }
