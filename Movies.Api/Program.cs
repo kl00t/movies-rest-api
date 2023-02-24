@@ -49,7 +49,9 @@ builder.Services.AddApiVersioning(x =>
     x.DefaultApiVersion = new ApiVersion(2.0);
     x.AssumeDefaultVersionWhenUnspecified = true;
     x.ReportApiVersions = true;
-    x.ApiVersionReader = new MediaTypeApiVersionReader("api-version");
+    x.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("api-version"), 
+        new MediaTypeApiVersionReader("api-version"));
 }).AddMvc().AddApiExplorer();
 
 builder.Services.AddControllers();
