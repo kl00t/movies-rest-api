@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7078e554-4c8c-4333-a165-77a745461a68",
-		"name": "Movies REST API",
+		"name": "Movies",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24102054"
 	},
@@ -387,6 +387,25 @@
 					"port": "5003",
 					"path": [
 						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7164/_health",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7164",
+					"path": [
+						"_health"
 					]
 				}
 			},
