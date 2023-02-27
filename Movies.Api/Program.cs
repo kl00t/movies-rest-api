@@ -53,7 +53,7 @@ builder.Services.AddScoped<ApiKeyAuthFilter>();
 
 builder.Services.AddApiVersioning(x =>
 {
-    x.DefaultApiVersion = new ApiVersion(2.0);
+    x.DefaultApiVersion = ApiVersion.Default;
     x.AssumeDefaultVersionWhenUnspecified = true;
     x.ReportApiVersions = true;
     x.ApiVersionReader = ApiVersionReader.Combine(
