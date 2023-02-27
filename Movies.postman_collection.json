@@ -9,11 +9,26 @@
 		{
 			"name": "Create movies bulk",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2ZTIxNjBjMy1kMjlkLTQ0NTYtYTNjOS1jMzZmYTY3Yzg0YzciLCJzdWIiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwiZW1haWwiOiJzY290dF92YXVnaGFuQGhvdG1haWwuY29tIiwidXNlcmlkIjoiMTQ3YzMzMDgtYWZlOC00NGNkLThjYjQtNTAxZDRjZDIyYjFjIiwiYWRtaW4iOnRydWUsInRydXN0ZWRfbWVtYmVyIjp0cnVlLCJuYmYiOjE2Nzc0OTIyMTUsImV4cCI6MTY3NzUyMTAxNSwiaWF0IjoxNjc3NDkyMjE1LCJpc3MiOiJodHRwczovL2lkLm5pY2tjaGFwc2FzLmNvbSIsImF1ZCI6Imh0dHBzOi8vbW92aWVzLm5pY2tjaGFwc2FzLmNvbSJ9.HMkjRU2P_FCkkqGcn6KIuqhx1r9hcim2iMlVfvRB4-8",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
 						"key": "Accept",
 						"value": "application/json;api-version=1.0",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "7B3840DB71E7456AA54774C3EBDB48D9",
 						"type": "text"
 					}
 				],
@@ -83,6 +98,9 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -128,6 +146,9 @@
 		{
 			"name": "Get movie by id",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -155,6 +176,9 @@
 		{
 			"name": "Get movie by slug",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -224,10 +248,15 @@
 						"key": "Accept",
 						"value": "application/json;api-version=1.0",
 						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "7B3840DB71E7456AA54774C3EBDB48D9",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "https://localhost:7164/api/movies/3ff37121-314b-4f76-bcb6-f9f0794f8ab8",
+					"raw": "https://localhost:7164/api/movies/001ca8e1-e93d-4654-8220-a0fd643a9812",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -236,7 +265,7 @@
 					"path": [
 						"api",
 						"movies",
-						"3ff37121-314b-4f76-bcb6-f9f0794f8ab8"
+						"001ca8e1-e93d-4654-8220-a0fd643a9812"
 					]
 				}
 			},

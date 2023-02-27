@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Movies.Api.Auth;
+using Movies.Api.Controllers;
 using Movies.Api.Health;
 using Movies.Api.Mapping;
 using Movies.Api.Swagger;
@@ -36,14 +37,19 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddAuthorization(x =>
 {
-    x.AddPolicy(AuthConstants.AdminUserPolicyName, p => 
-        p.RequireClaim(AuthConstants.AdminUserClaimName, "true"));
+    //x.AddPolicy(AuthConstants.AdminUserPolicyName, p => 
+    //    p.RequireClaim(AuthConstants.AdminUserClaimName, "true"));
+
+    x.AddPolicy(AuthConstants.AdminUserPolicyName, p =>
+        p.AddRequirements(new AdminAuthRequirement(configuration["ApiKey"]!)));
 
     x.AddPolicy(AuthConstants.TrustedMemberPolicyName, p =>
         p.RequireAssertion(c =>
             c.User.HasClaim(m => m is { Type: AuthConstants.AdminUserClaimName, Value: "true" }) ||
             c.User.HasClaim(m => m is { Type: AuthConstants.TrustedMemberClaimName, Value: "true" })));
 });
+
+builder.Services.AddScoped<ApiKeyAuthFilter>();
 
 builder.Services.AddApiVersioning(x =>
 {
@@ -54,6 +60,16 @@ builder.Services.AddApiVersioning(x =>
         new QueryStringApiVersionReader("api-version"), 
         new MediaTypeApiVersionReader("api-version"));
 }).AddMvc().AddApiExplorer();
+
+//builder.Services.AddResponseCaching(); // Client specific caching.
+builder.Services.AddOutputCache(x =>
+{
+    x.AddBasePolicy(c => c.Cache());
+    x.AddPolicy(MoviesController.OutputCachePolicyName, c => c.Cache()
+            .Expire(TimeSpan.FromMinutes(1))
+            .SetVaryByQuery(new[] { "title", "year", "sortBy", "pageSize" })
+            .Tag(MoviesController.OutputCacheTagName));
+});
 
 builder.Services.AddControllers();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>(DatabaseHealthCheck.Name);
@@ -80,6 +96,9 @@ app.MapHealthChecks("_health");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+//app.UseCors(); // Add caching after Cors
+//app.UseResponseCaching();
+app.UseOutputCache();
 app.UseMiddleware<ValidationMappingMiddleware>();
 app.MapControllers();
 
