@@ -27,6 +27,7 @@ public class MoviesController : ControllerBase
 
 	[Authorize(AuthConstants.AdminUserPolicyName)]
 	[HttpPost(ApiEndpoints.Movies.CreateBulk)]
+	[ServiceFilter(typeof(ApiKeyAuthFilter))]
 	public async Task<IActionResult> CreateBulk([FromBody] CreateBulkMoviesRequest[] request, CancellationToken token)
 	{
 		var movies = request.MapToMovies();
