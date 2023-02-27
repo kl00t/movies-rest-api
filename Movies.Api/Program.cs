@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Movies.Api.Auth;
+using Movies.Api.Controllers;
 using Movies.Api.Health;
 using Movies.Api.Mapping;
 using Movies.Api.Swagger;
@@ -55,6 +56,16 @@ builder.Services.AddApiVersioning(x =>
         new MediaTypeApiVersionReader("api-version"));
 }).AddMvc().AddApiExplorer();
 
+//builder.Services.AddResponseCaching(); // Client specific caching.
+builder.Services.AddOutputCache(x =>
+{
+    x.AddBasePolicy(c => c.Cache());
+    x.AddPolicy(MoviesController.OutputCachePolicyName, c => c.Cache()
+            .Expire(TimeSpan.FromMinutes(1))
+            .SetVaryByQuery(new[] { "title", "year", "sortBy", "pageSize" })
+            .Tag(MoviesController.OutputCacheTagName));
+});
+
 builder.Services.AddControllers();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>(DatabaseHealthCheck.Name);
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
@@ -80,6 +91,9 @@ app.MapHealthChecks("_health");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+//app.UseCors(); // Add caching after Cors
+//app.UseResponseCaching();
+app.UseOutputCache();
 app.UseMiddleware<ValidationMappingMiddleware>();
 app.MapControllers();
 
