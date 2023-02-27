@@ -1,4 +1,4 @@
-﻿namespace Identity.Api;
+﻿namespace Movies.Contracts.Requests;
 
 public class TokenGenerationRequest
 {
